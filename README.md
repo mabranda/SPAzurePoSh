@@ -1,4 +1,0 @@
-SPAzurePoSh
-===========
-
-SPAzurePoSh
