@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Azure SubscriptionName="{SUBSCRIPTION NAME}" ServiceName="{CLOUD SERVICE NAME}" StorageAccount="{STORAGE ACCOUNT}" VNetName="SPAutoVNet" AffinityGroup="SPAutoVNet-AG">
+<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzure" StorageAccount="spazurestorage2" VNetName="SpAzureVNet" AffinityGroup="SPAutoVNet-AG">
   <ServiceAccounts>
-    <ServiceAccount Username="{DOMAIN\ADMIN ACCOUNT}" Password="{PASSWORD}" Type="WindowsDomain" Create="No" /> <!--Account used to connect to AD-->
-    <ServiceAccount Username="{ADMIN ACCOUNT}" Password="{PASSWORD}" Type="WindowsLocal" Create="No" /> <!--Account used to create VM-->
-    <ServiceAccount Username="{SQL ADMIN ACCOUNT}" Password="{PASSWORD}" Type="SQL" Create="No" /> <!--Database ccount used to connect to SQL Server-->
-    <ServiceAccount Username="{DOMAIN\APP POOL ACCOUNT}" Password="{PASSWORD}" Type="WindowsDomain" Create="Yes" Usage="SPAppPool" /> <!--Account used to run SP App Pools-->
-    <ServiceAccount Username="FarmParaphrase" Password="{PASSWORD}" Type="None" /> <!--Pseudo account used to store farm paraphrase-->
+    <ServiceAccount Username="SpAzure\SpAzureAdmin" Password="P@ssword1" Type="WindowsDomain" Create="No" /> <!--Account used to connect to AD-->
+    <ServiceAccount Username="SpAzureLocalAdmin" Password="P@ssword1" Type="WindowsLocal" Create="No" /> <!--Account used to create VM-->
+    <ServiceAccount Username="SpAzure\SpAzureSqlAdmin" Password="P@ssword1" Type="SQL" Create="No" /> <!--Database ccount used to connect to SQL Server-->
+    <ServiceAccount Username="SpAzure\SpAzureAppPool" Password="P@ssword1" Type="WindowsDomain" Create="Yes" Usage="SPAppPool" /> <!--Account used to run SP App Pools-->
+    <ServiceAccount Username="FarmParaphrase" Password="P@ssword1" Type="None" /> <!--Pseudo account used to store farm paraphrase-->
   </ServiceAccounts>
   <Connections>
-    <ActiveDirectory Domain="{DOMAIN}" DnsDomain="{DNS DOMAIN}" DomainControllerVM="DC1" ServiceAccountName="{DOMAIN\ADMIN ACCOUNT}" ServiceName="{AD CLOUD SERVICE NAME}" />
+    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="{SpAzure\SpAzureAdmin}" ServiceName="SpAzureAdSvc" />
     <SQLServer Instance="SQL1" Username="{SQL ADMIN ACCOUNT}" ServiceName="{SQL SERVICE NAME}" />
   </Connections>
   <AzureVMGroups>

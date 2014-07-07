@@ -49,6 +49,7 @@ AutoConfigure -TemplateName "SingleVMs" `
 -Location "East US" `
 -serviceName SpAzureService `
 -ScriptFolder $scriptFolder `
+-subscriptionName "Windows Azure MSDN - Visual Studio Ultimate" `
 -storageAccountName spazurestorage2 `
 -adminAccount SpAzureAdmin `
 -adminPassword "P@ssword1" `

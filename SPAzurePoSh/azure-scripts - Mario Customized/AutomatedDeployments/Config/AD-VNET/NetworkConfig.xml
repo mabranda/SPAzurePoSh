@@ -10,7 +10,7 @@
           <Subnet name="AppSubnet">
             <AddressPrefix>10.20.1.0/24</AddressPrefix>
           </Subnet>
-          <Subnet name="DCSubnet">
+          <Subnet name="SpAzureDCSubnet">
             <AddressPrefix>10.20.2.0/24</AddressPrefix>
           </Subnet>
         </Subnets>

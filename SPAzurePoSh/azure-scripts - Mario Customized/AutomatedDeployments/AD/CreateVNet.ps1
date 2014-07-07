@@ -106,6 +106,7 @@ function CreateVNet()
 		{
 			$inputDnsServers = $inputVNetConfig.NetworkConfiguration.VirtualNetworkConfiguration.Dns.DnsServers
 			$newDnsServers = MergeXmlChildren $dnsNode.DnsServers $inputDnsServers "name"
+#MB: I think this wants to be an XML class in order to use ReplaceChild. right now it's only a string.
 			$dnsNode.ReplaceChild($newDnsServers, $dnsNode.DnsServers)
 		}
 		elseif($currentVNetConfig.NetworkConfiguration.VirtualNetworkConfiguration.Dns -ne $null)

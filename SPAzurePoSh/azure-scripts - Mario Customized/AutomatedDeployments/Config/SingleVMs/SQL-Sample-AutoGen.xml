@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzureService" StorageAccount="spazurestorage2" VNetName="SPAutoVNet" AffinityGroup="SPAutoVNet-AG">
+<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzureService" StorageAccount="spazurestorage2" VNetName="SpAzureVnet" AffinityGroup="SpAzureVnet-AG">
   <ServiceAccounts>
     <ServiceAccount UserName="SpAzureAdmin" Password="P@ssword1" Type="WindowsLocal" Create="No" />
     <!--Account used to create VMs-->
@@ -8,11 +8,11 @@
     <ServiceAccount UserName="SpAzureAdmin" Password="P@ssword1" Type="SQL" />
   </ServiceAccounts>
   <Connections>
-    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="DC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
+    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
   </Connections>
   <AzureVMGroups>
-    <VMRole Name="SQLServers" StartingImageName="fb83b3509582419d99629ce476bcb5c8__SQL-Server-2012-SP1-11.0.3430.0-Enterprise-ENU-Win2012-cy14su05" VMSize="A6" DataDiskSizesInGB="Data:20;Log:10" DefaultSQLDataFolder="F:\Data" DefaultSQLLogFolder="G:\Logs" SubnetNames="AppSubnet" ServiceAccountName="SpAzureAdmin">
-      <AzureVM Name="SQL1" />
+    <VMRole Name="SQLServers" StartingImageName="fb83b3509582419d99629ce476bcb5c8__SQL-Server-2012-SP1-11.0.3430.0-Enterprise-ENU-Win2012-cy14su05" VMSize="Basic_A3" DataDiskSizesInGB="Data:20;Log:10" DefaultSQLDataFolder="F:\Data" DefaultSQLLogFolder="G:\Logs" SubnetNames="AppSubnet" ServiceAccountName="SpAzureAdmin">
+      <AzureVM Name="SpAzureSQL1" />
     </VMRole>
   </AzureVMGroups>
   <SQLCluster Name="SQLStandalone" InstallerDomainUsername="SpAzure\SpAzureAdmin" InstallerDatabaseUserName="SpAzureAdmin" />

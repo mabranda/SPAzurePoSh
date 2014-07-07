@@ -3,20 +3,20 @@
   <ServiceAccounts>
     <ServiceAccount UserName="SpAzureLocalAdmin" Password="P@ssword1" Type="WindowsLocal" Create="No" /><!--Account used to create VMs-->
     <ServiceAccount UserName="SpAzure\SpAzureAdmin" Password="P@ssword1" Type="WindowsDomain" Create="No" /><!--Account used to connect to AD-->
-    <ServiceAccount UserName="SpAzureSqlAdmin" Password="P@ssword1" Type="SQL" />
+    <ServiceAccount UserName="SpAzure\SpAzureSqlAdmin" Password="P@ssword1" Type="SQL" />
   </ServiceAccounts>
   <Connections>
-    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin}" ServiceName="{AD CLOUD SERVICE NAME}" />
+    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin}" ServiceName="SpAzureAdSvc" />
   </Connections>
   <AzureVMGroups>
     <VMRole Name="SQLServers" StartingImageName="SQL Server 2012 SP1 Enterprise on Windows Server 2012" 
             VMSize="Basic_A3" DataDiskSizesInGB="Data:20;Log:10" DefaultSQLDataFolder="F:\Data" 
-				DefaultSQLLogFolder="G:\Logs" SubnetNames="AppSubnet" ServiceAccountName="{ADMIN ACCOUNT}">
-      <AzureVM Name="SQL1" />
+				DefaultSQLLogFolder="G:\Logs" SubnetNames="AppSubnet" ServiceAccountName="SpAzure\SpAzureSqlAdmin">
+      <AzureVM Name="SpAzureSQL1" />
     </VMRole>
   </AzureVMGroups>
   <SQLCluster Name="SQLStandalone"
-              InstallerDomainUsername="{DOMAIN\ADMIN ACCOUNT}"
-              InstallerDatabaseUserName="{SQL ADMIN ACCOUNT}"
+              InstallerDomainUsername="SpAzure\SpAzureAdmin"
+              InstallerDatabaseUserName="SpAzure\SpAzureSqlAdmin"
               />
 </Azure>

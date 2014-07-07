@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzureService" StorageAccount="spazurestorage2" VNetName="SPAutoVNet" AffinityGroup="SPAutoVNet-AG">
+<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzureService" StorageAccount="spazurestorage2" VNetName="SpAzureVNet" AffinityGroup="SPAutoVNet-AG">
   <ServiceAccounts>
     <ServiceAccount Username="SpAzure\SpAzureAdmin" Password="P@ssword1" Type="WindowsDomain" Create="No" />
     <!--Account used to connect to AD-->
@@ -13,11 +13,11 @@
     <!--Pseudo account used to store farm paraphrase-->
   </ServiceAccounts>
   <Connections>
-    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="DC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
+    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
     <SQLServer Instance="SQL1" Username="SpAzureAdmin" ServiceName="SpAzureService" />
   </Connections>
   <AzureVMGroups>
-    <VMRole Name="SharePointAllInOneServers" StartingImageName="c6e0f177abd8496e934234bd27f46c5d__SharePoint-2013-Trial-1-7-2014" VMSize="Large" DataDiskSizesInGB="Log:10" SubnetNames="AppSubnet" AdminUsername="SpAzureAdmin">
+    <VMRole Name="SharePointAllInOneServers" StartingImageName="c6e0f177abd8496e934234bd27f46c5d__SharePoint-2013-Trial-1-7-2014" VMSize="Basic_A0" DataDiskSizesInGB="Log:10" SubnetNames="AppSubnet" AdminUsername="SpAzureAdmin">
       <AzureVM Name="SPAllInOne">
         <Endpoint Name="web" Protocol="tcp" LocalPort="80" PublicPort="80" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
         <Endpoint Name="adminSite" Protocol="tcp" LocalPort="20000" PublicPort="20000" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
