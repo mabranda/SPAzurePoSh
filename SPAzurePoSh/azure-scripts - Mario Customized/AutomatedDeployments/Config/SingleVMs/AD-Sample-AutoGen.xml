@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Azure SubscriptionName="Windows Azure MSDN - Visual Studio Ultimate" ServiceName="SpAzureService" StorageAccount="spazurestorage2" Location="East US" VNetName="SpAzureVNet" AffinityGroup="SpAzureVNet-AG">
+  <ServiceAccounts>
+    <ServiceAccount UserName="SpAzureAdmin" Password="P@ssword1" Type="WindowsLocal" />
+  </ServiceAccounts>
+  <AzureVNet CreateVNET="true" NetworkConfigFileName="NetworkConfig.xml" />
+  <AzureVMGroups>
+    <VMRole Name="DomainControllers" StartingImageName="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201406.01-en.us-127GB.vhd" VMSize="A0" SubnetNames="SpAzureDCSubnet" ServiceAccountName="SpAzureAdmin" AvailabilitySet="{Not needed for SpAzure example}" DataDiskSizesInGB="Data:20;Log:10">
+      <AzureVM Name="SpAzureDC1" DCType="NewForest">
+      </AzureVM>
+    </VMRole>
+  </AzureVMGroups>
+  <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com">
+  </ActiveDirectory>
+</Azure>
