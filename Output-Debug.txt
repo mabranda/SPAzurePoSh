@@ -1,4 +1,4 @@
-Starting Deployment 07/08/2014 11:22:07
+﻿Starting Deployment 07/08/2014 15:28:11
 Use Cloud Service Name SpAzureService.
 Using Storage Account spazurestorage2.
 Setting AD Configuration File
@@ -14,19 +14,21 @@ Windows Azure MSDN - Visual Studio Ultimate
 xml                                                                                                 NetworkConfiguration                                                                               
 ---                                                                                                 --------------------                                                                               
 version="1.0" encoding="utf-8"                                                                      NetworkConfiguration                                                                               
-A VNet with name SpAzureVNet and identical configuration already exists.
+                                                                                                                                                                                                       
+                                                                                                                                                                                                       
+                                                                                                                                                                                                       
 Adding disk Data with size 20
                                                                                                                                                                                                        
                                                                                                                                                                                                        
-[VERBOSE] 11:24:27 AM - Begin Operation: New-AzureVM - Create Cloud Service
-[VERBOSE] 11:24:29 AM - Completed Operation: New-AzureVM - Create Cloud Service
+[VERBOSE] 3:28:58 PM - Begin Operation: New-AzureVM - Create Cloud Service
+[VERBOSE] 3:28:59 PM - Completed Operation: New-AzureVM - Create Cloud Service
                                                                                                                                                                                                        
-[VERBOSE] 11:24:29 AM - Begin Operation: New-AzureVM - Create Deployment with VM SpAzureDC1
-[VERBOSE] 11:25:02 AM - Completed Operation: New-AzureVM - Create Deployment with VM SpAzureDC1
+[VERBOSE] 3:28:59 PM - Begin Operation: New-AzureVM - Create Deployment with VM SpAzureDC1
+[VERBOSE] 3:29:33 PM - Completed Operation: New-AzureVM - Create Deployment with VM SpAzureDC1
                                                                                                                                                                                                        
-[VERBOSE] 11:25:02 AM - InstanceStatus is RoleStateUnknown
-[VERBOSE] 11:27:05 AM - InstanceStatus is Provisioning
-[VERBOSE] 11:33:14 AM - InstanceStatus is ReadyRole
+[VERBOSE] 3:29:33 PM - InstanceStatus is RoleStateUnknown
+[VERBOSE] 3:31:36 PM - InstanceStatus is Provisioning
+[VERBOSE] 3:35:40 PM - InstanceStatus is ReadyRole
 Installing WinRM Certificate for remote access: SpAzureService SpAzureDC1
 Pausing for Services to Start
 
@@ -205,41 +207,164 @@ The password of the new domain Administrator will be the same as the password of
 This Active Directory domain controller is assigned to the site "Default-First-Site-Name". You can manage sites with the Active Directory Sites and Services administrative tool.
                                                                                                                                                                                                        
 AD-DS Deployment completed...
-Configuring SpAzureDC1 with a static internal IP, 10.20.2.4. This will allow stopping the VM later and still retain the IP.
+Configuring SpAzureDC1 with a static internal IP, 10.20.1.4. This will allow stopping the VM later and still retain the IP.
                                                                                                                                                                                                        
-DC IP is : 10.20.2.4
+DC IP is : 10.20.1.4
 Adding Active Directory DNS to VNET
 Exporting existing VNet...
 Read the configuration file into memory...
-Adding Dns Server node...
-                                                                                                                                                                                                       
-                                                                                                                                                                                                       
+Updating existing Dns Server node...
 Adding Dns Servers Ref node...
                                                                                                                                                                                                        
                                                                                                                                                                                                        
 Updating VNet with Dns Server entry...
                                                                                                                                                                                                        
 Installing SQL Server 2012
-[ERROR] & : The term 'C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSQL.ps1' is not recognized as the name of a cmdlet, function, script file, or 
-[ERROR] operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-[ERROR] At C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\SharedComponents\autoconfigure.ps1:160 char:11
-[ERROR] +         & $sql -configFilePath $autoSqlConfig
-[ERROR] +           ~~~~
-[ERROR]     + CategoryInfo          : ObjectNotFound: (C:\Repos\SPAzur...rovisionSQL.ps1:String) [], CommandNotFoundException
-[ERROR]     + FullyQualifiedErrorId : CommandNotFoundException
+[ERROR] Import-Module : The specified module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1' was not loaded because no valid module file was found in any module directory.
+[ERROR] At C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSQL.ps1:17 char:1
+[ERROR] + Import-Module "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Az ...
+[ERROR] + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ERROR]     + CategoryInfo          : ResourceUnavailable: (C:\Program File...zure\Azure.psd1:String) [Import-Module], FileNotFoundException
+[ERROR]     + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Commands.ImportModuleCommand
 [ERROR]  
+Installing SQL Server using Configuration Template: C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\Config\SingleVMs\SQL-Sample-AutoGen.xml
+[ERROR] Import-Module : The specified module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1' was not loaded because no valid module file was found in any module directory.
+[ERROR] At C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSQL.ps1:33 char:1
+[ERROR] + Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Az ...
+[ERROR] + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ERROR]     + CategoryInfo          : ResourceUnavailable: (C:\Program File...zure\Azure.psd1:String) [Import-Module], FileNotFoundException
+[ERROR]     + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Commands.ImportModuleCommand
+[ERROR]  
+[ERROR] Import-Module : The specified module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1' was not loaded because no valid module file was found in any module directory.
+[ERROR] At C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSqlVm.ps1:42 char:1
+[ERROR] + Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Az ...
+[ERROR] + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ERROR]     + CategoryInfo          : ResourceUnavailable: (C:\Program File...zure\Azure.psd1:String) [Import-Module], FileNotFoundException
+[ERROR]     + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Commands.ImportModuleCommand
+[ERROR]  
+Current subscription: Windows Azure MSDN - Visual Studio Ultimate
+Creating VM...
+Adding disk Data with size 20
+                                                                                                                                                                                                       
+Adding disk Log with size 10
+                                                                                                                                                                                                       
+[VERBOSE] 3:49:43 PM - Completed Operation: Get Deployment
+[VERBOSE] 3:49:43 PM - Begin Operation: New-AzureVM - Create VM SpAzureSQL1
+[VERBOSE] 3:50:18 PM - Completed Operation: New-AzureVM - Create VM SpAzureSQL1
+                                                                                                                                                                                                       
+[VERBOSE] 3:50:18 PM - InstanceStatus is RoleStateUnknown
+[VERBOSE] 3:52:22 PM - InstanceStatus is Provisioning
+[VERBOSE] 4:00:33 PM - InstanceStatus is ReadyRole
+VM created.
+Installing WinRM Certificate for remote access: SpAzureService SpAzureSQL1
+Pausing for Services to Start
+Formatting data disks
+
+Microsoft DiskPart version 6.2.9200
+
+Copyright (C) 1999-2012 Microsoft Corporation.
+On computer: SPAZURESQL1
+
+Disk 3 is now the selected disk.
+
+Virtual Disk Service error:
+This disk is already online. 
+
+
+Disk attributes cleared successfully.
+
+DiskPart succeeded in creating the specified partition.
+
+
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+    0 percent completed
+  100 percent completed
+
+
+DiskPart successfully formatted the volume.
+
+Disk 3 is now the selected disk.
+
+Virtual Disk Service error:
+This disk is already online. 
+
+
+Disk attributes cleared successfully.
+
+Virtual Disk Service error:
+There is not enough usable space for this operation.
+
+
+There is no volume selected.
+Please select a volume and try again.
+Enabling CredSSP on SpAzureSQL1
+Enabling CredSSP Server...
+Auth
+    Basic = false
+    Kerberos = true
+    Negotiate = true
+    Certificate = false
+    CredSSP = true
+    CbtHardeningLevel = Relaxed
+
+CredSSP Server is enabled.
+Pausing to Allow CredSSP Scheduled Task to Execute on SpAzureSQL1
+[ERROR] [spazureservice.cloudapp.net] Connecting to remote server spazureservice.cloudapp.net failed with the following error message : The WinRM client cannot process the request. CredSSP authentication is 
+[ERROR] currently disabled in the client configuration. Change the client configuration and try the request again. CredSSP authentication must also be enabled in the server configuration. Also, Group Policy 
+[ERROR] must be edited to allow credential delegation to the target computer. Use gpedit.msc and look at the following policy: Computer Configuration -> Administrative Templates -> System -> Credentials 
+[ERROR] Delegation -> Allow Delegating Fresh Credentials.  Verify that it is enabled and configured with an SPN appropriate for the target computer. For example, for a target computer name 
+[ERROR] "myserver.domain.com", the SPN can be one of the following: WSMAN/myserver.domain.com or WSMAN/*.domain.com For more information, see the about_Remote_Troubleshooting Help topic.
+[ERROR]     + CategoryInfo          : OpenError: (spazureservice.cloudapp.net:String) [], PSRemotingTransportException
+[ERROR]     + FullyQualifiedErrorId : -2144108126,PSSessionStateBroken
 Installing SharePoint Server 2013
 Installing SharePoint Server 2013 using Configuration Template: C:\Repos\SPAzurePoSh\SPAzurePoSh\azure-scripts - Mario Customized\AutomatedDeployments\Config\SingleVMs\SharePoint-Sample-AutoGen.xml
-[ERROR] [spazureservice.cloudapp.net] Connecting to remote server spazureservice.cloudapp.net failed with the following error message : WinRM cannot complete the operation. Verify that the specified 
-[ERROR] computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM 
-[ERROR] firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
-[ERROR]     + CategoryInfo          : OpenError: (spazureservice.cloudapp.net:String) [], PSRemotingTransportException
-[ERROR]     + FullyQualifiedErrorId : WinRMOperationTimeout,PSSessionStateBroken
-[ERROR] [spazureservice.cloudapp.net] Connecting to remote server spazureservice.cloudapp.net failed with the following error message : WinRM cannot complete the operation. Verify that the specified 
-[ERROR] computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM 
-[ERROR] firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
-[ERROR]     + CategoryInfo          : OpenError: (spazureservice.cloudapp.net:String) [], PSRemotingTransportException
-[ERROR]     + FullyQualifiedErrorId : WinRMOperationTimeout,PSSessionStateBroken
+[VERBOSE] Performing the operation "New" on target "CN=SpAzureAppPool,OU=ServiceAccounts,DC=SpAzure,DC=com".
+                                                                                                                                                                                                       
+The OU  OU=ServiceAccounts,DC=SpAzure,DC=com  already exists.
 Current subscription: Windows Azure MSDN - Visual Studio Ultimate
 Creating VM...
 Adding disk Log with size 10
@@ -248,15 +373,15 @@ Adding Endpoint
                                                                                                                                                                                                        
 Adding Endpoint
                                                                                                                                                                                                        
-[VERBOSE] 11:50:08 AM - Completed Operation: Get Deployment
-[VERBOSE] 11:50:08 AM - Begin Operation: New-AzureVM - Create VM SPAllInOne
-[VERBOSE] 11:50:41 AM - Completed Operation: New-AzureVM - Create VM SPAllInOne
+[VERBOSE] 4:12:49 PM - Completed Operation: Get Deployment
+[VERBOSE] 4:12:49 PM - Begin Operation: New-AzureVM - Create VM SpAllInOne
+[VERBOSE] 4:13:52 PM - Completed Operation: New-AzureVM - Create VM SpAllInOne
                                                                                                                                                                                                        
-[VERBOSE] 11:50:41 AM - InstanceStatus is CreatingVM
-[VERBOSE] 11:52:45 AM - InstanceStatus is Provisioning
-[VERBOSE] 12:05:03 PM - InstanceStatus is ReadyRole
+[VERBOSE] 4:13:52 PM - InstanceStatus is RoleStateUnknown
+[VERBOSE] 4:15:56 PM - InstanceStatus is Provisioning
+[VERBOSE] 4:18:00 PM - InstanceStatus is ReadyRole
 VM created.
-Installing WinRM Certificate for remote access: SpAzureService SPAllInOne
+Installing WinRM Certificate for remote access: SpAzureService SpAllInOne
 Pausing for Services to Start
 Formatting data disks
 
@@ -328,38 +453,11 @@ DiskPart succeeded in creating the specified partition.
     0 percent completed
     0 percent completed
     0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
-    0 percent completed
   100 percent completed
 
 
 DiskPart successfully formatted the volume.
-Enabling CredSSP on SPAllInOne
+Enabling CredSSP on SpAllInOne
 Enabling CredSSP Server...
 Auth
     Basic = false
@@ -370,7 +468,7 @@ Auth
     CbtHardeningLevel = Relaxed
 
 CredSSP Server is enabled.
-Pausing to Allow CredSSP to be enabled on SPAllInOne
+Pausing to Allow CredSSP to be enabled on SpAllInOne
 [ERROR] [spazureservice.cloudapp.net] Connecting to remote server spazureservice.cloudapp.net failed with the following error message : The WinRM client cannot process the request. CredSSP authentication is 
 [ERROR] currently disabled in the client configuration. Change the client configuration and try the request again. CredSSP authentication must also be enabled in the server configuration. Also, Group Policy 
 [ERROR] must be edited to allow credential delegation to the target computer. Use gpedit.msc and look at the following policy: Computer Configuration -> Administrative Templates -> System -> Credentials 
@@ -406,7 +504,7 @@ Script Execution Complete. Verify no errors during execution.
 Credentials: SpAzure\SpAzureAdmin Password: P@ssword1
 Created Farm on http://SpAzureService.cloudapp.net
 Created Admin Site on http://SpAzureService.clouadpp.net:20000
-End Deployment 07/08/2014 12:15:26
+End Deployment 07/08/2014 16:26:20
 
 
 The program 'master-deployment-script.ps1: PowerShell Script' has exited with code 0 (0x0).
