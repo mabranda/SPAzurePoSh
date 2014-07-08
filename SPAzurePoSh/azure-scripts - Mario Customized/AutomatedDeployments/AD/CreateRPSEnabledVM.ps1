@@ -58,7 +58,7 @@ function CreateVM
 	
 	if($dcInstallMode -eq 'NewForest')
 	{	
-		$vmConfig | Add-AzureProvisioningConfig -Windows -Password $password -AdminUserName $adminUserName 
+		$vmConfig | Add-AzureProvisioningConfig -Windows -Password $password -AdminUserName $adminUserName
 		#Create the Remote PS enabled Primary DC VM	
 		New-AzureVM -ServiceName $serviceName -AffinityGroup $affinityGroup -VNetName $vnetName -VMs $vmConfig -WaitForBoot -Verbose
 	}

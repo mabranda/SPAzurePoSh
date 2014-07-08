@@ -7,24 +7,24 @@
     <!--Account used to create VM-->
     <ServiceAccount Username="SpAzureAdmin" Password="P@ssword1" Type="SQL" Create="No" />
     <!--Database ccount used to connect to SQL Server-->
-    <ServiceAccount Username="SpAzure\SpAzurePool" Password="P@ssword1" Type="WindowsDomain" Create="Yes" Usage="SPAppPool" />
+    <ServiceAccount Username="SpAzure\SpAzureAppPool" Password="P@ssword1" Type="WindowsDomain" Create="Yes" Usage="SpAppPool" />
     <!--Account used to run SP App Pools-->
     <ServiceAccount Username="SpAzure\SpAzureAdmin" Password="P@ssword1" Type="None" />
     <!--Pseudo account used to store farm paraphrase-->
   </ServiceAccounts>
   <Connections>
     <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
-    <SQLServer Instance="SQL1" Username="SpAzureAdmin" ServiceName="SpAzureService" />
+    <SQLServer Instance="SpAzureSQL1" Username="SpAzureAdmin" ServiceName="SpAzureService" />
   </Connections>
   <AzureVMGroups>
-    <VMRole Name="SharePointAllInOneServers" StartingImageName="c6e0f177abd8496e934234bd27f46c5d__SharePoint-2013-Trial-1-7-2014" VMSize="Basic_A0" DataDiskSizesInGB="Log:10" SubnetNames="AppSubnet" AdminUsername="SpAzureAdmin">
-      <AzureVM Name="SPAllInOne">
+    <VMRole Name="SharePointAllInOneServers" StartingImageName="c6e0f177abd8496e934234bd27f46c5d__SharePoint-2013-Trial-1-7-2014" VMSize="Basic_A3" DataDiskSizesInGB="Log:10" SubnetNames="SpAzureSubnet" AdminUsername="SpAzureAdmin">
+      <AzureVM Name="SpAllInOne">
         <Endpoint Name="web" Protocol="tcp" LocalPort="80" PublicPort="80" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
         <Endpoint Name="adminSite" Protocol="tcp" LocalPort="20000" PublicPort="20000" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
       </AzureVM>
     </VMRole>
   </AzureVMGroups>
-  <SharePointFarm Name="SP1" FarmAdminUsername="SpAzure\SpAzureAdmin" InstallerDomainUsername="SpAzure\SpAzureAdmin" InstallerDatabaseUsername="SpAzureAdmin" ApplicationPoolAccount="SpAzure\SpAzurePool" ApplicationPoolName="DefaultWebAppPool" ConfigDBName="SharePoint_Config" AdminContentDBName="CA_Content" FarmParaphraseServiceAccountName="FarmParaphrase">
+  <SharePointFarm Name="SP1" FarmAdminUsername="SpAzure\SpAzureAdmin" InstallerDomainUsername="SpAzure\SpAzureAdmin" InstallerDatabaseUsername="SpAzureAdmin" ApplicationPoolAccount="SpAzure\SpAzureAppPool" ApplicationPoolName="DefaultWebAppPool" ConfigDBName="SharePoint_Config" AdminContentDBName="CA_Content" FarmParaphraseServiceAccountName="FarmParaphrase">
     <WebApplications>
       <WebApplication Name="PublishingSite" Url="http://SpAzureService.cloudapp.net" TopLevelSiteTemplate="BLANKINTERNET#0" TopLevelSiteName="Blank Publishing Site" TopLevelSiteOwner="SpAzure\SpAzureAdmin" Port="80" />
     </WebApplications>

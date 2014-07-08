@@ -53,7 +53,7 @@ AutoConfigure -TemplateName "SingleVMs" `
 -storageAccountName spazurestorage2 `
 -adminAccount SpAzureAdmin `
 -adminPassword "P@ssword1" `
--appPoolAccount SpAzurePool `
+-appPoolAccount SpAzureAppPool `
 -appPoolPassword "P@ssword1" `
 -domain SpAzure `
 -dnsDomain "SpAzure.com"

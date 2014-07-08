@@ -13,7 +13,7 @@
             StartingImageName="{SQL SERVER 2012 ENTERPRISE IMAGE NAME}"
             QuorumStartingImageName="{WINDOWS SERVER 2012 IMAGE NAME}" QuorumVMSize="Small"
             DataDiskSizesInGB="Data:20;Log:10" DefaultSQLDataFolder="F:\Data" DefaultSQLLogFolder="G:\Logs" AvailabilitySet="SQLHA" 
-            SubnetNames="AppSubnet" ServiceAccountName="{ADMIN ACCOUNT}">
+            SubnetNames="SpAzureSubnet" ServiceAccountName="{ADMIN ACCOUNT}">
       <AzureVM Name="SQLQ" Type="QUORUM" />
       <AzureVM Name="SQL2" Type="SECONDARY" />
       <AzureVM Name="SQL1" Type="PRIMARY" /><!--Please ensure that the Type Primary is the last entry for the AzureVM-->

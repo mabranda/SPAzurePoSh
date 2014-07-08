@@ -7,7 +7,7 @@
           <AddressPrefix>10.20.0.0/16</AddressPrefix>
         </AddressSpace>
         <Subnets>
-          <Subnet name="AppSubnet">
+          <Subnet name="SpAzureSubnet">
             <AddressPrefix>10.20.1.0/24</AddressPrefix>
           </Subnet>
           <Subnet name="SpAzureDCSubnet">
