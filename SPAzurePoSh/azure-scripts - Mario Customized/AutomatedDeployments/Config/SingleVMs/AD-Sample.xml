@@ -6,7 +6,7 @@
   <AzureVNet CreateVNET="true" NetworkConfigFileName="NetworkConfig.xml" />
   <AzureVMGroups>
     <VMRole Name="DomainControllers" StartingImageName="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201406.01-en.us-127GB.vhd" 
-                  VMSize="Basic_A0" SubnetNames="SpAzureDCSubnet" ServiceAccountName="SpAzure\SpAzureAdmin" AvailabilitySet="{Not needed for SpAzure example}" DataDiskSizesInGB="Data:20;Log:10" >
+                  VMSize="Basic_A0" SubnetNames="SpAzureSubnet" ServiceAccountName="SpAzure\SpAzureAdmin" AvailabilitySet="{Not needed for SpAzure example}" DataDiskSizesInGB="Data:20;Log:10" >
       <AzureVM Name="SpAzureDC1" DCType="NewForest" >
       </AzureVM>
     </VMRole>    

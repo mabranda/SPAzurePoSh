@@ -4,36 +4,36 @@
     <ServiceAccount Username="SpAzure\SpAzureAdmin" Password="P@ssword1" Type="WindowsDomain" Create="No" /> <!--Account used to connect to AD-->
     <ServiceAccount Username="SpAzureLocalAdmin" Password="P@ssword1" Type="WindowsLocal" Create="No" /> <!--Account used to create VM-->
     <ServiceAccount Username="SpAzure\SpAzureSqlAdmin" Password="P@ssword1" Type="SQL" Create="No" /> <!--Database ccount used to connect to SQL Server-->
-    <ServiceAccount Username="SpAzure\SpAzureAppPool" Password="P@ssword1" Type="WindowsDomain" Create="Yes" Usage="SPAppPool" /> <!--Account used to run SP App Pools-->
+    <ServiceAccount Username="SpAzure\SpAzureAppPool" Password="P@ssword1" Type="WindowsDomain" Create="Yes" Usage="SpAppPool" /> <!--Account used to run SP App Pools-->
     <ServiceAccount Username="FarmParaphrase" Password="P@ssword1" Type="None" /> <!--Pseudo account used to store farm paraphrase-->
   </ServiceAccounts>
   <Connections>
-    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="{SpAzure\SpAzureAdmin}" ServiceName="SpAzureAdSvc" />
-    <SQLServer Instance="SQL1" Username="{SQL ADMIN ACCOUNT}" ServiceName="{SQL SERVICE NAME}" />
+    <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin" ServiceName="SpAzureService" />
+    <SQLServer Instance="SpAzureSQL1" Username="SpAzureSqlAdmin" ServiceName="SpAzureService" />
   </Connections>
   <AzureVMGroups>
-    <VMRole Name="SharePointAllInOneServers" StartingImageName="{SHAREPOINT 2013 IMAGE}" VMSize="Basic_A0" DataDiskSizesInGB="Log:10"
-            SubnetNames="AppSubnet" AdminUsername="{ADMIN ACCOUNT}">
-      <AzureVM Name="SPAllInOne">
+    <VMRole Name="SharePointAllInOneServers" StartingImageName="c6e0f177abd8496e934234bd27f46c5d__SharePoint-2013-Trial-1-7-2014" VMSize="Basic_A3" DataDiskSizesInGB="Log:10"
+            SubnetNames="SpAzureSubnet" AdminUsername="SpAzure\SpAzureAdmin">
+      <AzureVM Name="SpAllInOne">
 	    <Endpoint Name="web" Protocol="tcp" LocalPort="80" PublicPort="80" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
 	    <Endpoint Name="adminSite" Protocol="tcp" LocalPort="20000" PublicPort="20000" LBSetName="" ProbePort="" ProbeProtocol="" ProbePath="" />
       </AzureVM>
     </VMRole>
   </AzureVMGroups>
   <SharePointFarm Name="SP1" 
-                  FarmAdminUsername="{DOMAIN\ADMIN ACCOUNT}" 
-                  InstallerDomainUsername="{DOMAIN\ADMIN ACCOUNT}" 
-                  InstallerDatabaseUsername="{SQL ADMIN ACCOUNT}"
-		  ApplicationPoolAccount="{DOMAIN\APP POOL ACCOUNT}"
+                  FarmAdminUsername="SpAzure\SpAzureAdmin}" 
+                  InstallerDomainUsername="SpAzure\SpAzureAdmin" 
+                  InstallerDatabaseUsername="SpAzureSqlAdmin"
+		  ApplicationPoolAccount="SpAzure\SpAzureAppPool"
 		  ApplicationPoolName="DefaultWebAppPool"
                   ConfigDBName="SharePoint_Config"
                   AdminContentDBName="CA_Content"
                   FarmParaphraseServiceAccountName="FarmParaphrase">
     <WebApplications>
       <WebApplication Name="PublishingSite" 
-                      Url="http://{SHAREPOINT APP URL}"
+                      Url="http://SpAzure.com"
                       TopLevelSiteTemplate="BLANKINTERNET#0" TopLevelSiteName="Blank Publishing Site"
-                      TopLevelSiteOwner="{DOMAIN\ADMIN ACCOUNT}" Port="80" />
+                      TopLevelSiteOwner="SpAzure\SpAzureAdmin}" Port="80" />
     </WebApplications>
     <ServiceApplications>
       <SADeploymentGroup Name="AppServices" StartOnVMRoles="SharePointAppServers,SharePointAllInOneServers">

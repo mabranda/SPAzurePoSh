@@ -9,13 +9,13 @@
     <ActiveDirectory Domain="SpAzure" DnsDomain="SpAzure.com" DomainControllerVM="SpAzureDC1" ServiceAccountName="SpAzure\SpAzureAdmin}" ServiceName="SpAzureAdSvc" />
   </Connections>
   <AzureVMGroups>
-    <VMRole Name="SQLServers" StartingImageName="SQL Server 2012 SP1 Enterprise on Windows Server 2012" 
+    <VMRole Name="SqlServers" StartingImageName="Sql Server 2012 SP1 Enterprise on Windows Server 2012" 
             VMSize="Basic_A3" DataDiskSizesInGB="Data:20;Log:10" DefaultSQLDataFolder="F:\Data" 
-				DefaultSQLLogFolder="G:\Logs" SubnetNames="AppSubnet" ServiceAccountName="SpAzure\SpAzureSqlAdmin">
+				DefaultSQLLogFolder="G:\Logs" SubnetNames="SpAzureSubnet" ServiceAccountName="SpAzure\SpAzureSqlAdmin">
       <AzureVM Name="SpAzureSQL1" />
     </VMRole>
   </AzureVMGroups>
-  <SQLCluster Name="SQLStandalone"
+  <SQLCluster Name="SqlStandalone"
               InstallerDomainUsername="SpAzure\SpAzureAdmin"
               InstallerDatabaseUserName="SpAzure\SpAzureSqlAdmin"
               />
