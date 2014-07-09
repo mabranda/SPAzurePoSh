@@ -54,8 +54,17 @@ create partition primary noerr
 format quick
 "@
 		}
+	#--BEGIN CODE CHANGES
+	#Error creating G drive. See https://github.com/Azure/azure-sdk-tools-samples/issues/71
+		# Begin ADDED code
+		if ($driveNumber) {
+			$scriptDisk += $script + "`n"
+		}
+		#End ADDED code			        
 		$driveNumber = $Null
-		$scriptDisk += $script + "`n"
+			#$scriptDisk += $script + "`n"
+	#--END CODE CHANGES
+
 	}
 	#output diskpart script
 	$scriptDisk | Out-File -Encoding ASCII -FilePath "c:\Diskpart.txt" 
