@@ -98,6 +98,7 @@
     <Compile Include="azure-scripts - Mario Customized\AutomatedDeployments\SQL\CreateAzureFailoverCluster.ps1" />
     <Compile Include="azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSQL.ps1" />
     <Compile Include="azure-scripts - Mario Customized\AutomatedDeployments\SQL\ProvisionSqlVm.ps1" />
+    <Compile Include="azure-scripts - Mario Customized\Output-Debug.txt" />
     <Compile Include="azure-scripts - Mario Customized\README.md" />
     <Compile Include="azure-scripts - Mario Customized\services\active-directory\place-holder.txt" />
     <Compile Include="azure-scripts - Mario Customized\services\add-ons\place-holder.txt" />
