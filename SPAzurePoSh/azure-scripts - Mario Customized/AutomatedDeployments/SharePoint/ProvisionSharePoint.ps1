@@ -123,7 +123,6 @@ if(-not [string]::IsNullOrEmpty($firstServerServiceName) -and -not [string]::IsN
 	$databaseUsername = $config.Azure.SharePointFarm.InstallerDatabaseUsername
 	$databasePassword = GetPasswordByUsername $config.Azure.SharePointFarm.InstallerDatabaseUsername $config.Azure.ServiceAccounts.ServiceAccount
 	$databaseCredential = New-Object System.Management.Automation.PSCredential($databaseUsername, (ConvertTo-SecureString $databasePassword -AsPlainText -Force))
-#MB: Error here
 	$session = New-PSSession -ComputerName $spuris[0].DnsSafeHost -Credential $credential -Authentication Credssp -Port $spuris[0].Port -UseSSL
 	
     

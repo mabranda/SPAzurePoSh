@@ -43,8 +43,8 @@
                   AdminContentDBName="CA_Content"
                   FarmParaphraseServiceAccountName="FarmParaphrase">
     <WebApplications>
-      <WebApplication Name="PublishingSite" Url="http://SpAzure.com"
-                      TopLevelSiteTemplate="BLANKINTERNET#0" TopLevelSiteName="Blank Publishing Site"
+      <WebApplication Name="FedSpugDemo" Url="http://SpAzureService.CloudApp.Net"
+                      TopLevelSiteTemplate="STS#0" TopLevelSiteName="FedSpug Team Site"
                       TopLevelSiteOwner="SpAzure\SpAzureAdmin" Port="80"/>
     </WebApplications>
     <ServiceApplications>
