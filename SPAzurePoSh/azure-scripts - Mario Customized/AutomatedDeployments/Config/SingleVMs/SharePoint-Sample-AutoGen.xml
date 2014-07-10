@@ -26,7 +26,7 @@
   </AzureVMGroups>
   <SharePointFarm Name="SP1" FarmAdminUsername="SpAzure\SpAzureAdmin" InstallerDomainUsername="SpAzure\SpAzureAdmin" InstallerDatabaseUsername="SpAzureAdmin" ApplicationPoolAccount="SpAzure\SpAzureAppPool" ApplicationPoolName="DefaultWebAppPool" ConfigDBName="SharePoint_Config" AdminContentDBName="CA_Content" FarmParaphraseServiceAccountName="FarmParaphrase">
     <WebApplications>
-      <WebApplication Name="PublishingSite" Url="http://SpAzureService.cloudapp.net" TopLevelSiteTemplate="BLANKINTERNET#0" TopLevelSiteName="Blank Publishing Site" TopLevelSiteOwner="SpAzure\SpAzureAdmin" Port="80" />
+      <WebApplication Name="FedSpugDemo" Url="http://SpAzureService.cloudapp.net" TopLevelSiteTemplate="STS#0" TopLevelSiteName="FEDSPUG Demo" TopLevelSiteOwner="SpAzure\SpAzureAdmin" Port="80" />
     </WebApplications>
     <ServiceApplications>
       <SADeploymentGroup Name="AppServices" StartOnVMRoles="SharePointAppServers,SharePointAllInOneServers">
